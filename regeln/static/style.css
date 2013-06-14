@@ -1,0 +1,36 @@
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+body {
+  font-family: "Alfa Slab One", Impact, Sans;
+  font-size: 6vw;
+  line-height: 1.1em;
+  text-transform: uppercase;
+  padding: 4vw; }
+
+h1 {
+  font-size: 1em;
+  font-weight: normal; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  display: inline; }
+
+.rule {
+  color: #0086ff; }
+
+.button {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.5em;
+  padding-bottom: 0.42em;
+  font-size: 0.5em;
+  line-height: 1em;
+  background-color: black;
+  color: white; }
