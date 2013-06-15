@@ -1,5 +1,5 @@
 <h2>Neue Regel</h2>
-<form method="post" action="/add">
+<form method="post" action="{{ url_for('add')}}">
 	<input type="text" name="rule" />
 	<input type="submit" />
 </form>
@@ -17,6 +17,6 @@
 	<tr>
 		<td>{{ rule.id }}</td>
 		<td>{{ rule.rule }}</td>
-		<td><a href="/delete/{{ rule.id }}">löschen</a></td>
+		<td><a href="{{ url_for('delete', id=rule.id)}}">löschen</a></td>
 	</tr>
 	{% endfor %}

@@ -7,9 +7,9 @@
 	<body>
 		<div class="content">
 			<h1>
-				Es gibt wenige Regeln, aber eine davon ist 
+				Es gibt wenige Regeln, aber eine davon ist
 				<span class="rule">
-					<a href="/{{ rule.id }}" title="Permalink zu dieser Regel">{{ rule.rule }}</a>
+					<a href="{{ url_for('permalink', id=rule.id)}}" title="Permalink zu dieser Regel">{{ rule.rule }}</a>
 				</span>
 			</h1>
 		</div>
