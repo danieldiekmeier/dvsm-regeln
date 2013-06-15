@@ -6,7 +6,12 @@
 	</head>
 	<body>
 		<div class="content">
-			<h1>Es gibt wenige Regeln, aber eine davon ist <span class="rule">{{ rule.rule }}</span></h1>
+			<h1>
+				Es gibt wenige Regeln, aber eine davon ist 
+				<span class="rule">
+					<a href="/{{ rule.id }}" title="Permalink zu dieser Regel">{{ rule.rule }}</a>
+				</span>
+			</h1>
 		</div>
 		<a href="/" class="button">Noch mehr</a>
 	</body>

@@ -40,3 +40,8 @@ def index():
 		rule = choice(data)
 	session['rule'] = rule['id']
 	return render_template('index.html', rule=rule)
+
+@app.route('/<id>')
+def permalink(id):
+	rule = query_db('SELECT * FROM rules WHERE id = ?', id, True)
+	return render_template('index.html', rule=rule)
