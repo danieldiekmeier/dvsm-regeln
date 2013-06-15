@@ -1,0 +1,22 @@
+<h2>Neue Regel</h2>
+<form method="post" action="/add">
+	<input type="text" name="rule" />
+	<input type="submit" />
+</form>
+
+<h2>Regeln verwalten</h2>
+<table>
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>Regel</td>
+			<td>Aktionen</td>
+		</tr>
+	</thead>
+	{% for rule in rules %}
+	<tr>
+		<td>{{ rule.id }}</td>
+		<td>{{ rule.rule }}</td>
+		<td><a href="/delete/{{ rule.id }}">löschen</a></td>
+	</tr>
+	{% endfor %}

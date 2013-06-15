@@ -45,3 +45,40 @@ def index():
 def permalink(id):
 	rule = query_db('SELECT * FROM rules WHERE id = ?', id, True)
 	return render_template('index.html', rule=rule)
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+	if request.method == 'POST':
+		if (request.form['username'] == app.config['DANIEL_USER'] and request.form['password'] == app.config['DANIEL_PW']) or (request.form['username'] == app.config['MAX_USER'] and request.form['password'] == app.config['MAX_PW']):
+			session['logged_in'] = True
+			return redirect(url_for('admin'))
+	else:
+		return render_template('login.html')
+
+@app.route('/admin')
+def admin():
+	if not session['logged_in']:
+		abort(401)
+	rules = query_db('SELECT * FROM rules ORDER BY id asc')
+	return render_template('admin.html', rules=rules)
+
+@app.route('/add', methods=['POST'])
+def add():
+	if not session['logged_in']:
+		abort(401)
+	rule = request.form['rule']
+	other_rules = query_db('SELECT rule from rules')
+	if rule:
+		g.db.execute('INSERT INTO rules (rule) values (?)', [rule])
+		g.db.commit()
+	return redirect(url_for('admin'))
+
+@app.route('/delete/<id>')
+def delete(id):
+	if not session['logged_in']:
+		abort(401)
+	if id:
+		g.db.execute('DELETE FROM rules WHERE id = ?', [id])
+		g.db.commit()
+	return redirect(url_for('admin'))

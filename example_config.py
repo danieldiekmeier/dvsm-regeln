@@ -1,3 +1,6 @@
 DATABASE = '/Users/Username/dev/regeln/regeln.db'
+DANIEL_USER = 'daniel'
 DANIEL_PW = 'password1'
+MAX_USER = 'max'
 MAX_PW = 'password2'
+SECRET_KEY = 'secretkthx'
