@@ -32,6 +32,11 @@ def teardown_request(exception):
 
 @app.route('/')
 def index():
+	if not session.get('rule'):
+		session['rule'] = -1
 	data = query_db('SELECT * FROM rules ORDER BY id desc')
 	rule = choice(data)
+	while session['rule'] == rule['id']:
+		rule = choice(data)
+	session['rule'] = rule['id']
 	return render_template('index.html', rule=rule)
